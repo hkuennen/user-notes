@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
 from .models import User
@@ -20,7 +19,7 @@ def login():
                 flash("Logged in successfully!", category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
-            else: 
+            else:
                 flash("Incorrect password, try again.", category='error')
         else:
             flash("User does not exist.", category='error')
@@ -60,5 +59,5 @@ def sign_up():
             login_user(user, remember=True, force=True)
             flash("Account created!", category='success')
             return redirect(url_for("views.home"))
-        
+
     return render_template("sign_up.html", user=current_user)

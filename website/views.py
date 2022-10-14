@@ -1,7 +1,5 @@
-from crypt import methods
 from flask import Blueprint, jsonify, render_template, request, flash
 from flask_login import login_required, current_user
-from itsdangerous import json
 from . import db
 from .models import Note
 import json
